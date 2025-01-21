@@ -1,13 +1,11 @@
 ﻿using System;
-using System.IO;
-using System.Threading;
 
 namespace ConsoleApp1.Utilities
 {
     public class BaseClass
     {
         static string currentDirectory = System.IO.Directory.GetCurrentDirectory();
-        private static readonly string LogFilePath = currentDirectory + "../../../TestResults/log.txt";
+        private static readonly string LogFilePath = currentDirectory + "../../../../TestResults/log.txt";
         private static StreamWriter _logFile;
 
         public static void CreateLogFile()
