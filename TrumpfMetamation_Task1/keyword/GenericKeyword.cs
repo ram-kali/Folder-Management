@@ -34,7 +34,7 @@ namespace ConsoleApp1.keyword
         /// </summary>
         /// <param name="textFilePath">The path where the text file will be created.</param>
         /// <param name="textToBeWritten">The content to write into the text file.</param>
-        public void CreateNewtextFileWithText(string textFilePath, string textToBeWritten)
+        public void CreateNewTextFileWithText(string textFilePath, string textToBeWritten)
         {
             if (!File.Exists(textFilePath))
             {
@@ -69,9 +69,13 @@ namespace ConsoleApp1.keyword
             {
                 Directory.Delete(folderPath, true);
                 stepPass("Folder and its contents deleted successfully!");
-                return;
+            
             }
-            stepFail("Failed to delete folder and its contents!");
+            else
+            {
+                stepFail("Failed to delete folder and its contents!");
+            }
+                
         }
 
         /// <summary>
@@ -100,7 +104,7 @@ namespace ConsoleApp1.keyword
         /// <param name="app">The application from which to retrieve the main window.</param>
         /// <param name="automation">The automation instance used for interaction with the UI.</param>
         /// <returns>The main window of the application.</returns>
-        public Window GetCurrentWindow(Application app, UIA3Automation automation)
+        public AutomationElement GetCurrentWindow(Application app, UIA3Automation automation)
         {
             return app.GetMainWindow(automation);
         }
@@ -111,10 +115,33 @@ namespace ConsoleApp1.keyword
         /// <param name="mainWindow">The main window of the application.</param>
         /// <param name="elementType">The type of the element (e.g., "name", "automationid", "classname").</param>
         /// <param name="element">The identifier for the element to click.</param>
-        public void ClickOn(Window mainWindow, string elementType, string element)
+        public void ClickOn(AutomationElement mainWindow, string elementType, string element)
         {
-            findElement(mainWindow, elementType, element).AsButton().Click();
+
+            var elementToClick = findElement(mainWindow, elementType, element);
+
+            if (elementToClick != null)
+            {
+                elementToClick.WaitUntilClickable();
+                // Check if it's a button or a clickable element
+                if (elementToClick is AutomationElement automationElement)
+                {
+                    wait(1);
+                    var button = automationElement.AsButton();
+                    button.Click();
+                    stepPass($"Clicked on '{element}' button.");
+                }
+                else
+                {
+                    stepFail($"Element found for '{element}', but it is not a clickable button.");
+                }
+            }
+            else
+            {
+                stepFail($"Element '{element}' not found.");
+            }
         }
+
 
         /// <summary>
         /// Clicks on a checkbox element in the main window of the application.
@@ -122,7 +149,7 @@ namespace ConsoleApp1.keyword
         /// <param name="mainWindow">The main window of the application.</param>
         /// <param name="elementType">The type of the element (e.g., "name", "automationid", "classname").</param>
         /// <param name="element">The identifier for the checkbox to click.</param>
-        public void ClickCheckBox(Window mainWindow, string elementType, string element)
+        public void ClickCheckBox(AutomationElement mainWindow, string elementType, string element)
         {
             findElement(mainWindow, elementType, element).AsCheckBox().Click();
         }
@@ -134,7 +161,7 @@ namespace ConsoleApp1.keyword
         /// <param name="elementType">The type of the element (e.g., "name", "automationid", "classname").</param>
         /// <param name="element">The identifier for the text box element.</param>
         /// <param name="text">The text to enter into the text box.</param>
-        public void EnterText(Window mainWindow, string elementType, string element, string text)
+        public void EnterText(AutomationElement mainWindow, string elementType, string element, string text)
         {
             findElement(mainWindow, elementType, element).AsTextBox().Enter(text);
         }
@@ -146,16 +173,16 @@ namespace ConsoleApp1.keyword
         /// <param name="elementType">The type of the element (e.g., "name", "automationid", "classname").</param>
         /// <param name="element">The identifier for the element to find.</param>
         /// <returns>The UI element found in the window, or null if not found.</returns>
-        public Window findElement(Window mainWindow, string elementType, string element)
+        public AutomationElement findElement(AutomationElement mainWindow, string elementType, string element)
         {
             switch (elementType.ToLower())
             {
                 case "name":
-                    return (Window)mainWindow.FindFirstDescendant(cf.ByName(element));
+                    return (AutomationElement)mainWindow.FindFirstDescendant(cf.ByName(element));
                 case "automationid":
-                    return (Window)mainWindow.FindFirstDescendant(cf.ByAutomationId(element));
+                    return (AutomationElement)mainWindow.FindFirstDescendant(cf.ByAutomationId(element));
                 case "classname":
-                    return (Window)mainWindow.FindFirstDescendant(cf.ByClassName(element));
+                    return (AutomationElement)mainWindow.FindFirstDescendant(cf.ByClassName(element));
                 default:
                     return null;
             }

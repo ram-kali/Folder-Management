@@ -1,4 +1,7 @@
 ﻿using ConsoleApp1.keyword;
+using FlaUI.Core.Input;
+using FlaUI.Core.WindowsAPI;
+using System.Diagnostics;
 
 
 namespace ConsoleApp1.Pages
@@ -10,11 +13,12 @@ namespace ConsoleApp1.Pages
             string newFolderPath = Path.Combine(drivePath, newFolderName);
             CreateDirectory(newFolderPath);
             string textFilePath = Path.Combine(newFolderPath, textFileName);
-            CreateNewtextFileWithText(textFilePath, textToBeWritten);
+            CreateNewTextFileWithText(textFilePath, textToBeWritten);
 
             wait(1);
             return newFolderPath;
         }
+
 
         public void verifyTextInNotePad(string folderPath, string textFileName, string expectedText)
         {
@@ -37,5 +41,27 @@ namespace ConsoleApp1.Pages
         {
             DeleteFolder(folderPath);
         }
+
+        public void createNewFolder(string folderName)
+        {
+            
+            Keyboard.Press(VirtualKeyShort.LCONTROL);
+            Keyboard.Press(VirtualKeyShort.SHIFT);
+            Keyboard.Press(VirtualKeyShort.KEY_N);
+            Keyboard.Release(VirtualKeyShort.KEY_N);
+            Keyboard.Release(VirtualKeyShort.SHIFT);
+            Keyboard.Release(VirtualKeyShort.LCONTROL);
+            wait(2);
+            Keyboard.Type(folderName);
+
+            // Press Enter to confirm the folder name
+            Keyboard.Press(FlaUI.Core.WindowsAPI.VirtualKeyShort.RETURN);
+            Keyboard.Release(FlaUI.Core.WindowsAPI.VirtualKeyShort.RETURN);
+            //typeString(folderName);
+
+
+        }
+
+        
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TrumpfMetamation_Task1")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ea7ca071a09aa7e35567609d567c650563f20f9")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0e804d15c431e4d6b3c251cf92a886f8aa2eca55")]
 [assembly: System.Reflection.AssemblyProductAttribute("TrumpfMetamation_Task1")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TrumpfMetamation_Task1")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
